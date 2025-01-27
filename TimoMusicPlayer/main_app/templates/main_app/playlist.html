@@ -1,0 +1,48 @@
+{% extends "main_app/base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-2">
+        </div>
+    <div class="col-8 mt-4 ">
+<ol class="list-group list-group overflow-scroll" style="max-height:40rem;">
+        <li class="list-group-item d-flex justify-content-between align-items-start bg-secondary text-light" >
+    <div class="row">
+            <div class="col-2"><i class="fas fa-play"></i>
+        </div>
+            <div class="col-2"><i class="fas fa-forward"></i>
+        </div>
+            <div class="col-2"><i class="fas fa-random"></i>
+        </div>
+    </div>
+  </li>
+    {% for track in tracks %}
+  <li class="list-group-item d-flex justify-content-between align-items-start bg-light border-secondary" >
+    <div class="row">
+            <div class="col-9">
+          <div class="ms-2 me-auto">
+      <div class="fw-bold">{{track.track_name}}</div>
+      Added {{track.date_added}}
+              <a object_id ={{track.id}} class="btn btn-secondary bg-gradient mb-3">Get Track</a>
+                <audio class='col-10' id="audioPlayer${element.title}" controls style='display:none;'>
+     <source type="audio/mpeg">
+</audio>
+    </div>
+            </div>
+            <div class="col-2 display-flex"><img src={{track.thumbnail_url}} class="img-fluid rounded" alt="not found" style="width:40rem;height:5rem;"></div>
+    </div>
+  </li>
+  {% endfor %}
+
+</ol>
+        </div>
+     <div class="col-2">
+        </div>
+</div>
+              <span class="btn mt-4 bg-light"><i class="far fa-arrow-alt-circle-left me-1 align-middle"></i><a style="text-decoration: none;" class="text-dark align-middle" href="{% url 'playlists'%}">Back</a></span>
+
+
+        {% endblock %}
+<script type="text/javascript">
+    {% for track in tracks %}
+
+</script>
